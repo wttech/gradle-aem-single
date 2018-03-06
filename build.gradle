@@ -24,6 +24,7 @@ aem {
     config {
         localAuthorInstance()
         localPublishInstance()
+        awaitCondition = { it.bundleState.activeIgnoring("org.apache.sling.jcr.webdav") }
     }
 }
 
