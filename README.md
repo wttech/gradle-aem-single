@@ -94,8 +94,6 @@ Tested on:
 
 ## Tips & tricks
 
-* To run some task only for subproject, use project path as a prefix, for instance: `gradlew :app:design:aemSync`.
-* Declare bundle dependencies available on AEM (like Maven's provided scope) in root project *build.gradle* in section `plugins.withId 'com.cognifide.aem.bundle'` to avoid defining them separately for each subproject.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,
     * disabled on continuous integration environments.
