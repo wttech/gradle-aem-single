@@ -1,9 +1,9 @@
 ![Cognifide logo](docs/cognifide-logo.png)
 
-[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status.svg)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status)
-[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-multi.svg?label=License)](http://www.apache.org/licenses/)
+[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status.svg)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status)
+[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-single.svg?label=License)](http://www.apache.org/licenses/)
 
-# AEM Multi-Project Example
+# AEM Single-Project Example
 
 <br>
 <p align="center">
@@ -22,7 +22,6 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 
 * [Quickstart](#quickstart)
 * [Environment](#environment)
-* [Structure](#structure)
 * [Features](#features)
 * [Building](#building)
 * [Tips &amp; tricks](#tips--tricks)
@@ -34,7 +33,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 1. Fork project using command:
 
     ```bash
-    git clone git@github.com:Cognifide/gradle-aem-multi.git && cd gradle-aem-multi && gradlew -i fork
+    git clone git@github.com:Cognifide/gradle-aem-single.git && cd gradle-aem-single && gradlew -i fork
     ```
 
     and specify properties:
@@ -75,20 +74,6 @@ Tested on:
 * Gradle 4.4.1
 * Adobe AEM 6.3
 
-## Structure
-
-Project is divided into subpackages (designed with reinstallabilty on production environments in mind):
-
-* *root* - non-reinstallable complete all-in-one package with application and contents.
-* *app* - reinstallable assembly package that contains all sub-parts of application:
-    * *common* - OSGi bundle with integrations of libraries needed by other bundles and AEM extensions (dialogs, form controls etc).
-    * *core* - OSGi bundle with core business logic and AEM components implementation.
-    * *config* - OSGi services configuration.
-    * *design* - AEM design configuration responsible for look & feel of AEM pages.
-* *content* - non-reinstallable assembly package that contains all type of contents listed below:
-    * *init* - contains all JCR content needed initially to rollout new site(s) using installed application.
-    * *demo* - consists of extra AEM pages that presents features of application (useful for testing).
-
 ## Features
 
 * Integrated [Fork Plugin](https://github.com/neva-dev/gradle-fork-plugin) / project generator based on live archetypes.
@@ -105,18 +90,7 @@ Project is divided into subpackages (designed with reinstallabilty on production
     * Use bundled wrapper (always use command `gradlew` instead of `gradle`). It will be downloaded automatically (recommended).
     * Use standalone from [here](https://docs.gradle.org/current/userguide/installation.html).
 2. Run `gradlew idea` or `gradlew eclipse` to generate configuration for your favourite IDE.
-3. Build application and deploy:
-    * Assembly packages:
-        * `gradlew` <=> `:aemSatisfy :aemDeploy :aemAwait`,
-        * `gradlew :app:aemDeploy`,
-        * `gradlew :content:aemDeploy`.
-    * Single package:
-        * `gradlew :app:core:aemDeploy`,
-        * `gradlew :app:common:aemDeploy`,
-        * `gradlew :app:config:aemDeploy`,
-        * `gradlew :app:design:aemDeploy`,
-        * `gradlew :content:init:aemDeploy`,
-        * `gradlew :content:demo:aemDeploy`.
+3. Build application and deploy using command: `gradlew` <=> `:aemSatisfy :aemDeploy :aemAwait`
 
 ## Tips & tricks
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/example"/>
+    <filter root="/content/example"/>
+    <filter root="/etc/designs/example"/>
+    <filter root="/etc/tags" mode="update"/>
+</workspaceFilter>
