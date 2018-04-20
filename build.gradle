@@ -59,7 +59,8 @@ fork {
         cloneFiles()
         moveFiles([
                 "/com/company/aem/example": "/{{projectGroup|substitute('.', '/')}}/{{projectName}}",
-                "/example": "/{{projectName}}"
+                "/Example": "/{{projectLabel}}",
+                "/example": "/{{projectName}}",
         ])
         replaceContents([
                 "com.company.aem.example": "{{projectGroup}}.{{projectName}}",

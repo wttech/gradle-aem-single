@@ -14,17 +14,17 @@ import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.osgi.service.component.annotations.Component;
 
 /**
- * @link http://[host]:[port]/content/we-retail/us/en.example.json
+ * @link http://[host]:[port]/content/we-retail/us/en.hello.json
  */
 @Component(
   service = Servlet.class,
   property = {
     "sling.servlet.extensions=json",
-    "sling.servlet.selectors=example",
+    "sling.servlet.selectors=hello",
     "sling.servlet.resourceTypes=" + NameConstants.NT_PAGE
   }
 )
-public class ExampleServlet extends SlingAllMethodsServlet {
+public class HelloServlet extends SlingAllMethodsServlet {
 
   private static final Gson GSON = new GsonBuilder()
     .disableHtmlEscaping().serializeNulls().setPrettyPrinting()
