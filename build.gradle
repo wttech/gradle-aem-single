@@ -17,9 +17,6 @@ repositories {
 
 aem {
     config {
-        localInstance 'http://localhost:4502'
-        localInstance 'http://localhost:4503'
-
         bundlePackage = 'com.company.aem.example.core'
     }
 
@@ -58,8 +55,5 @@ fork {
                 "Example": "{{projectLabel}}",
                 "example": "{{projectName}}",
         ])
-    }
-    inPlaceConfig 'setup', {
-        copyTemplateFile("gradle.properties")
     }
 }
