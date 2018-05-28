@@ -17,9 +17,12 @@ repositories {
 
 aem {
     config {
-        localAuthorInstance()
-        localPublishInstance()
-        awaitCondition = { it.bundleState.activeIgnoring("org.apache.sling.jcr.webdav") }
+        bundlePackage = 'com.company.aem.example.core'
+    }
+
+    bundle {
+        attribute 'Bundle-Category', 'example'
+        attribute 'Bundle-Vendor', 'Company'
     }
 }
 
@@ -39,21 +42,6 @@ dependencies {
     compile group: 'joda-time', name: 'joda-time', version: '2.9.1'
 }
 
-jar {
-    def pkg = 'com.company.aem.example.core'
-
-    manifest {
-        attributes([
-                'Bundle-Name': project.description,
-                'Bundle-SymbolicName': pkg,
-                'Bundle-Category': 'example',
-                'Bundle-Vendor': 'Company',
-                'Sling-Model-Packages': pkg,
-                'Export-Package': "$pkg.*"
-        ])
-    }
-}
-
 fork {
     config {
         cloneFiles()
@@ -68,8 +56,5 @@ fork {
                 "Example": "{{projectLabel}}",
                 "example": "{{projectName}}",
         ])
-    }
-    inPlaceConfig 'setup', {
-        copyTemplateFile("gradle.properties")
     }
 }
