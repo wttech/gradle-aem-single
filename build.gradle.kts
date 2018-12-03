@@ -29,18 +29,18 @@ aem {
 }
 
 dependencies {
-    compileOnly(group = "org.osgi", name = "osgi.cmpn", version = "6.0.0")
-    compileOnly(group = "javax.servlet", name = "servlet-api", version = "2.5")
-    compileOnly(group = "javax.jcr", name = "jcr", version = "2.0")
-    compileOnly(group = "org.slf4j", name = "slf4j-api", version = "1.7.21")
-    compileOnly(group = "org.apache.geronimo.specs", name = "geronimo-atinject_1.0_spec", version = "1.0")
-    compileOnly(group = "org.apache.sling", name = "org.apache.sling.api", version = "2.16.4")
-    compileOnly(group = "org.apache.sling", name = "org.apache.sling.jcr.api", version = "2.4.0")
-    compileOnly(group = "org.apache.sling", name = "org.apache.sling.models.api", version = "1.3.6")
-    compileOnly(group = "com.google.code.gson", name = "gson", version = "2.8.1")
-    compileOnly(group = "joda-time", name = "joda-time", version = "2.9.1")
+    compileOnly("org.osgi:osgi.cmpn:6.0.0")
+    compileOnly("javax.servlet:servlet-api:2.5")
+    compileOnly("javax.jcr:jcr:2.0")
+    compileOnly("org.slf4j:slf4j-api:1.7.21")
+    compileOnly("org.apache.geronimo.specs:geronimo-atinject_1.0_spec:1.0")
+    compileOnly("org.apache.sling:org.apache.sling.api:2.16.4")
+    compileOnly("org.apache.sling:org.apache.sling.jcr.api:2.4.0")
+    compileOnly("org.apache.sling:org.apache.sling.models.api:1.3.6")
+    compileOnly("com.google.code.gson:gson:2.8.1")
+    compileOnly("joda-time:joda-time:2.9.1")
 
-    compileOnly(group = "com.adobe.aem", name = "uber-jar", version = "6.4.0", classifier = "obfuscated-apis")
+    compileOnly("com.adobe.aem", "uber-jar", "6.4.0", classifier = "obfuscated-apis")
 }
 
 tasks {
