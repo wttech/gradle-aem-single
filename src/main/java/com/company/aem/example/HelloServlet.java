@@ -1,4 +1,4 @@
-package com.company.aem.example.core;
+package com.company.aem.example;
 
 import com.day.cq.wcm.api.NameConstants;
 import com.google.common.collect.ImmutableMap;
