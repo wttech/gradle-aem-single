@@ -37,8 +37,9 @@ dependencies {
     compileOnly(group = "org.apache.sling", name = "org.apache.sling.jcr.api", version = "2.4.0")
     compileOnly(group = "org.apache.sling", name = "org.apache.sling.models.api", version = "1.3.6")
     compileOnly(group = "com.google.code.gson", name = "gson", version = "2.8.1")
-    compileOnly(group = "com.adobe.aem", name = "uber-jar", version = "6.4.0", classifier = "obfuscated-apis")
     compileOnly(group = "joda-time", name = "joda-time", version = "2.9.1")
+
+    compileOnly(group = "com.adobe.aem", name = "uber-jar", version = "6.4.0", classifier = "obfuscated-apis")
 }
 
 tasks.named<ForkTask>("fork").configure {
