@@ -20,8 +20,8 @@ repositories {
 aem {
     bundle {
         javaPackage = "com.company.aem.example.core"
-        category("example")
-        vendor("Company")
+        category = "example"
+        vendor = "Company"
     }
 }
 
