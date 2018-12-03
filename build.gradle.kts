@@ -1,10 +1,13 @@
 import com.neva.gradle.fork.ForkTask
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     id("com.cognifide.aem.bundle")
     id("com.cognifide.aem.instance")
     id("com.neva.fork")
 }
+
 description = "Example"
 defaultTasks = listOf(":aemSatisfy", ":aemDeploy", ":aemAwait")
 
@@ -26,8 +29,6 @@ aem {
 }
 
 dependencies {
-    testImplementation(group = "junit", name = "junit", version = "4.12")
-
     compileOnly(group = "org.osgi", name = "osgi.cmpn", version = "6.0.0")
     compileOnly(group = "javax.servlet", name = "servlet-api", version = "2.5")
     compileOnly(group = "javax.jcr", name = "jcr", version = "2.0")
@@ -42,19 +43,36 @@ dependencies {
     compileOnly(group = "com.adobe.aem", name = "uber-jar", version = "6.4.0", classifier = "obfuscated-apis")
 }
 
-tasks.named<ForkTask>("fork").configure {
-    config {
-        cloneFiles()
-        moveFiles(mapOf(
-                "/com/company/aem/example" to "/{{projectGroup|substitute(\".\", \"/\")}}/{{projectName}}",
-                "/Example" to "/{{projectLabel}}",
-                "/example" to "/{{projectName}}"
-        ))
-        replaceContents(mapOf(
-                "com.company.aem.example" to "{{projectGroup}}.{{projectName}}",
-                "com.company.aem" to "{{projectGroup}}",
-                "Example" to "{{projectLabel}}",
-                "example" to "{{projectName}}"
-        ))
+tasks {
+    withType<Test>().configureEach {
+        failFast = true
+        useJUnitPlatform()
+        testLogging {
+            events = setOf(TestLogEvent.FAILED)
+            exceptionFormat = TestExceptionFormat.SHORT
+        }
+
+        dependencies {
+            "testImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
+            "testRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.3.2")
+            "testImplementation"("io.wcm:io.wcm.testing.aem-mock.junit5:2.3.2")
+        }
+    }
+
+    named<ForkTask>(ForkTask.NAME).configure {
+        config {
+            cloneFiles()
+            moveFiles(mapOf(
+                    "/com/company/aem/example" to "/{{projectGroup|substitute(\".\", \"/\")}}/{{projectName}}",
+                    "/Example" to "/{{projectLabel}}",
+                    "/example" to "/{{projectName}}"
+            ))
+            replaceContents(mapOf(
+                    "com.company.aem.example" to "{{projectGroup}}.{{projectName}}",
+                    "com.company.aem" to "{{projectGroup}}",
+                    "Example" to "{{projectLabel}}",
+                    "example" to "{{projectName}}"
+            ))
+        }
     }
 }
