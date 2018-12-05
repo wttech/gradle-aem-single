@@ -20,14 +20,6 @@ repositories {
     maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }
 }
 
-aem {
-    bundle {
-        javaPackage = "com.company.aem.example"
-        category = "example"
-        vendor = "Company"
-    }
-}
-
 dependencies {
     compileOnly("org.osgi:osgi.cmpn:6.0.0")
     compileOnly("javax.servlet:servlet-api:2.5")
@@ -40,7 +32,15 @@ dependencies {
     compileOnly("com.google.code.gson:gson:2.8.1")
     compileOnly("joda-time:joda-time:2.9.1")
 
-    compileOnly("com.adobe.aem", "uber-jar", "6.4.0", classifier = "obfuscated-apis")
+    compileOnly("com.adobe.aem:uber-jar:6.4.0:obfuscated-apis")
+}
+
+aem {
+    bundle {
+        javaPackage = "com.company.aem.example"
+        category = "example"
+        vendor = "Company"
+    }
 }
 
 tasks {
