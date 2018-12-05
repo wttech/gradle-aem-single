@@ -1,4 +1,3 @@
-import com.neva.gradle.fork.ForkTask
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
@@ -43,6 +42,23 @@ aem {
     }
 }
 
+fork {
+    config {
+        cloneFiles()
+        moveFiles(mapOf(
+                "/com/company/aem/example" to "/{{projectGroup|substitute(\".\", \"/\")}}/{{projectName}}",
+                "/Example" to "/{{projectLabel}}",
+                "/example" to "/{{projectName}}"
+        ))
+        replaceContents(mapOf(
+                "com.company.aem.example" to "{{projectGroup}}.{{projectName}}",
+                "com.company.aem" to "{{projectGroup}}",
+                "Example" to "{{projectLabel}}",
+                "example" to "{{projectName}}"
+        ))
+    }
+}
+
 tasks {
     withType<Test>().configureEach {
         failFast = true
@@ -56,23 +72,6 @@ tasks {
             "testImplementation"("org.junit.jupiter:junit-jupiter-api:5.3.2")
             "testRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.3.2")
             "testImplementation"("io.wcm:io.wcm.testing.aem-mock.junit5:2.3.2")
-        }
-    }
-
-    named<ForkTask>(ForkTask.NAME).configure {
-        config {
-            cloneFiles()
-            moveFiles(mapOf(
-                    "/com/company/aem/example" to "/{{projectGroup|substitute(\".\", \"/\")}}/{{projectName}}",
-                    "/Example" to "/{{projectLabel}}",
-                    "/example" to "/{{projectName}}"
-            ))
-            replaceContents(mapOf(
-                    "com.company.aem.example" to "{{projectGroup}}.{{projectName}}",
-                    "com.company.aem" to "{{projectGroup}}",
-                    "Example" to "{{projectLabel}}",
-                    "example" to "{{projectName}}"
-            ))
         }
     }
 }
