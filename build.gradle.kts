@@ -59,6 +59,15 @@ tasks {
         }
     }
 
+    register("downloadSource") {
+        doLast {
+            aem.instance("local-author").sync {
+
+                println(evalGroovyScript("test.groovy"))
+            }
+        }
+    }
+
     named<ForkTask>(ForkTask.NAME).configure {
         config {
             cloneFiles()
