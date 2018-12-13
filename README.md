@@ -86,12 +86,11 @@ Tested on:
 
 ## Tips & tricks
 
+* To run some task only for subproject, use project path as a prefix, for instance: `gradlew :aem:app.design:aemSync`.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,
     * disabled on continuous integration environments.
-* If build caches to much, you could try with `--rerun-tasks` option. See this [link](https://docs.gradle.org/current/userguide/gradle_command_line.html) for more details.
-* To see more descriptive details about errors, you could use `-i`, `--stacktrace`, `--debug` options.
-* To skip tests or any other task by name use `-x test`
+* To see more descriptive errors or want to skip some tasks, see command line [documentation](https://docs.gradle.org/current/userguide/command_line_interface.html).
 
 ## Running tests 
 
