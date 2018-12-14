@@ -11,7 +11,6 @@
 </p>
 <br>
 
-
 ## Description
 
 This project could be used to start developing **application** based on AEM.
@@ -19,6 +18,15 @@ This project could be used to start developing **application** based on AEM.
 To start developing **project** based on AEM it is recommended to use [Gradle AEM Multi](https://github.com/Cognifide/gradle-aem-multi) instead.
 
 Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
+
+## Important notice 
+
+Gradle AEM Plugin 6.x serie and upper will **no longer support Groovy DSL** and **stands on Kotlin DSL** coming with Gradle 5.0.
+
+Documentation for:
+
+* [migrating Groovy DSL to Kotlin DSL](https://guides.gradle.org/migrating-build-logic-from-groovy-to-kotlin) (official Gradle docs).
+* [previous 5.x serie](https://github.com/Cognifide/gradle-aem-multi/tree/groovy) (navigates to branch `groovy`),
 
 ## Table of Contents
 
