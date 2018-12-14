@@ -1,6 +1,6 @@
 ![Cognifide logo](docs/cognifide-logo.png)
 
-[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status.svg)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status)
+[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status.svg?random=123)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status)
 [![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-single.svg?label=License)](http://www.apache.org/licenses/)
 
 # AEM Single-Project Example
