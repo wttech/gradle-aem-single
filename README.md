@@ -26,7 +26,7 @@ Gradle AEM Plugin 6.x serie and upper will **no longer support Groovy DSL** and 
 Documentation for:
 
 * [migrating Groovy DSL to Kotlin DSL](https://guides.gradle.org/migrating-build-logic-from-groovy-to-kotlin) (official Gradle docs).
-* [previous 5.x serie](https://github.com/Cognifide/gradle-aem-multi/tree/groovy) (navigates to branch `groovy`),
+* [previous 5.x serie](https://github.com/Cognifide/gradle-aem-single/tree/groovy) (navigates to branch `groovy`),
 
 ## Table of Contents
 
