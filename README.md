@@ -81,7 +81,7 @@ Documentation for:
 Tested on:
 
 * Java 1.8
-* Gradle 4.9
+* Gradle 5.0
 * Adobe AEM 6.4
 
 ## Building
