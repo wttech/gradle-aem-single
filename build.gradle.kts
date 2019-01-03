@@ -35,10 +35,12 @@ dependencies {
 }
 
 aem {
-    bundle {
-        javaPackage = "com.company.aem.example"
-        category = "example"
-        vendor = "Company"
+    tasks {
+        bundle {
+            javaPackage = "com.company.aem.example"
+            category = "example"
+            vendor = "Company"
+        }
     }
 }
 
