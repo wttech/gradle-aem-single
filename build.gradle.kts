@@ -10,7 +10,7 @@ plugins {
 description = "Example"
 defaultTasks = listOf(":aemSatisfy", ":aemDeploy")
 
-group = "com.company.example.aem"
+group = "com.company.aem"
 version = "1.0.0-SNAPSHOT"
 
 repositories {
@@ -32,14 +32,6 @@ dependencies {
     compileOnly("joda-time:joda-time:2.9.1")
 
     compileOnly("com.adobe.aem:uber-jar:6.4.0:obfuscated-apis")
-}
-
-aem {
-    tasks {
-        bundle {
-            category = "example"
-        }
-    }
 }
 
 tasks {

@@ -33,12 +33,11 @@ configure<ForkExtension> {
     config {
         cloneFiles()
         moveFiles(mapOf(
-                "/com/company/example/aem" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}/aem",
+                "/com/company/aem/example" to "/{{projectGroup|substitute('.', '/')}}/aem/{{projectName}}",
                 "/example" to "/{{projectName}}"
         ))
         replaceContents(mapOf(
-                "com.company.example.aem" to "{{projectGroup}}.{{projectName}}.aem",
-                "com.company.example" to "{{projectGroup}}.{{projectName}}",
+                "com.company.aem.example" to "{{projectGroup}}.aem.{{projectName}}",
                 "Example" to "{{projectLabel}}",
                 "example" to "{{projectName}}"
         ))
