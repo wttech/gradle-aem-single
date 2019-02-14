@@ -10,7 +10,7 @@ plugins {
 description = "Example"
 defaultTasks = listOf(":aemSatisfy", ":aemDeploy")
 
-group = "com.company.aem"
+group = "com.company.example.aem"
 version = "1.0.0-SNAPSHOT"
 
 repositories {
@@ -37,9 +37,7 @@ dependencies {
 aem {
     tasks {
         bundle {
-            javaPackage = "com.company.aem.example"
             category = "example"
-            vendor = "Company"
         }
     }
 }
