@@ -38,6 +38,7 @@ configure<ForkExtension> {
         ))
         replaceContents(mapOf(
                 "com.company.aem.example" to "{{projectGroup}}.aem.{{projectName}}",
+                "com.company.aem" to "{{projectGroup}}.aem",
                 "Example" to "{{projectLabel}}",
                 "example" to "{{projectName}}"
         ))
