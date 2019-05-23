@@ -43,7 +43,7 @@ Documentation for:
 1. Fork project using command:
 
     ```bash
-    git clone git@github.com:Cognifide/gradle-aem-single.git && cd gradle-aem-single && gradlew fork
+    git clone git@github.com:Cognifide/gradle-aem-single.git && cd gradle-aem-single && ./gradlew fork
     ```
 
     and specify properties:
@@ -55,7 +55,7 @@ Documentation for:
 2. Setup user specific project configuration using command:
 
     ```bash
-    gradlew props
+    ./gradlew props
     ```
     
     and specify properties:
@@ -65,7 +65,7 @@ Documentation for:
 3. Setup local AEM instances and dependencies then build application using command:
 
     ```bash
-    gradlew -i aemSetup
+    ./gradlew -i aemSetup
     ```
     
     and wait till complete AEM environment will be ready to use.
@@ -73,7 +73,7 @@ Documentation for:
 4. Develop continuously application using command:
 
     ```bash
-    gradlew -i
+    ./gradlew -i
     ```
 
 ## Environment
