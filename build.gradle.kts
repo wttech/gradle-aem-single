@@ -52,7 +52,7 @@ tasks {
 
     register("uploadFileUsingSftp") {
         doLast {
-            aem.fileTransfer.factory.sftp {
+            aem.fileTransfer.factory.smb {
                 user = "neva"
                 password = "9PoS6s5miqvR"
 
@@ -60,6 +60,7 @@ tasks {
             }
         }
     }
+
 }
 
 apply(from = "gradle/fork.gradle.kts")

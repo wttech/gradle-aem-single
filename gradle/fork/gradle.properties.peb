@@ -16,6 +16,9 @@ instance.local-publish.jvmOpts={{instanceJvmOpts}}
 {% endif %}
 
 {% if instanceType == 'local' %}
+localInstance.backup.uploadUrl={{localInstanceBackupUploadUri}}
+localInstance.backup.downloadUrl={{localInstanceBackupDownloadUri}}
+
 localInstance.quickstart.jarUrl={{localInstanceQuickstartJarUri}}
 localInstance.quickstart.licenseUrl={{localInstanceQuickstartLicenseUri}}
 {% endif %}

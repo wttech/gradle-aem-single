@@ -25,7 +25,7 @@ configure<ForkExtension> {
                 "instanceType" to {
                     select("local", "remote")
                     description = "local - instance will be created on local file system\nremote - connecting to remote instance only"
-                    controller { toggle(value == "local", "aemInstanceRunModes", "aemInstanceJvmOpts", "aemLocalInstance*") }
+                    controller { toggle(value == "local", "instanceRunModes", "instanceJvmOpts", "localInstance*") }
                 },
                 "instanceRunModes" to { text("local,nosamplecontent") },
                 "instanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
@@ -34,6 +34,14 @@ configure<ForkExtension> {
                 },
                 "localInstanceQuickstartLicenseUri" to {
                     description = "Quickstart license file (license.properties)"
+                },
+                "localInstanceBackupUploadUri" to {
+                    description = "Backup storage directory upload URL (SFTP/SMB)"
+                    optional()
+                },
+                "localInstanceBackupDownloadUri" to {
+                    description = "Backup stored file download URL (HTTP/SFTP/SMB/local)\nOptional if upload URL specified / most recent auto-selected"
+                    optional()
                 }
         ))
     }
