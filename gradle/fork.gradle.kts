@@ -12,32 +12,28 @@ configure<ForkExtension> {
                     description = "Java package in source code and artifact 'group' coordinate"
                     validator { javaPackage(); notEndsWith("projectName") }
                 },
-                "aemInstanceAuthorHttpUrl" to {
+                "instanceAuthorHttpUrl" to {
                     url("http://localhost:4502")
                     optional()
                     description = "URL for accessing AEM author instance"
                 },
-                "aemInstancePublishHttpUrl" to {
+                "instancePublishHttpUrl" to {
                     url("http://localhost:4503")
                     optional()
                     description = "URL for accessing AEM publish instance"
                 },
-                "aemInstanceType" to {
+                "instanceType" to {
                     select("local", "remote")
                     description = "local - instance will be created on local file system\nremote - connecting to remote instance only"
                     controller { toggle(value == "local", "aemInstanceRunModes", "aemInstanceJvmOpts", "aemLocalInstance*") }
                 },
-                "aemInstanceRunModes" to { text("local,nosamplecontent") },
-                "aemInstanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
-                "aemLocalInstanceJarUri" to {
+                "instanceRunModes" to { text("local,nosamplecontent") },
+                "instanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
+                "localInstanceQuickstartJarUri" to {
                     description = "Quickstart JAR (cq-quickstart-x.x.x.jar)"
                 },
-                "aemLocalInstanceLicenseUri" to {
+                "localInstanceQuickstartLicenseUri" to {
                     description = "Quickstart license file (license.properties)"
-                },
-                "aemLocalInstanceZipUri" to {
-                    description = "ZIP file created by Gradle AEM Plugin backup task"
-                    optional()
                 }
         ))
     }
