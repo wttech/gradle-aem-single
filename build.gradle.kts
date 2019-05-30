@@ -49,6 +49,17 @@ tasks {
             "testImplementation"("io.wcm:io.wcm.testing.aem-mock.junit5:2.3.2")
         }
     }
+
+    register("uploadFileUsingSftp") {
+        doLast {
+            aem.fileTransfer.factory.sftp {
+                user = "neva"
+                password = "9PoS6s5miqvR"
+
+                upload("ssh://neva@neva.zone", File("C:\\Users\\krystian.panek\\Projects\\gradle-aem-multi\\gradle.properties"))
+            }
+        }
+    }
 }
 
 apply(from = "gradle/fork.gradle.kts")
