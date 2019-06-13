@@ -1,3 +1,4 @@
+import com.cognifide.gradle.aem.common.instance.local.Source
 import com.neva.gradle.fork.ForkExtension
 
 configure<ForkExtension> {
@@ -29,11 +30,23 @@ configure<ForkExtension> {
                 },
                 "instanceRunModes" to { text("local,nosamplecontent") },
                 "instanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
+                "localInstanceSource" to {
+                    description = "Local instance source\nControls how instances will be created (from scratch or backup)"
+                    select(Source.values().map { it.name.toLowerCase() }, Source.AUTO.name.toLowerCase())
+                },
                 "localInstanceQuickstartJarUri" to {
                     description = "Quickstart JAR (cq-quickstart-x.x.x.jar)"
                 },
                 "localInstanceQuickstartLicenseUri" to {
                     description = "Quickstart license file (license.properties)"
+                },
+                "localInstanceBackupDownloadUri" to {
+                    description = "URL to backup file (SMB/SFTP/HTTP)"
+                    optional()
+                },
+                "localInstanceBackupUploadUri" to {
+                    description = "URL to backup directory (SMB/SFTP)"
+                    optional()
                 }
         ))
     }

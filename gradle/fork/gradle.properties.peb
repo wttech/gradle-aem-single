@@ -16,8 +16,11 @@ instance.local-publish.jvmOpts={{instanceJvmOpts}}
 {% endif %}
 
 {% if instanceType == 'local' %}
-localInstance.quickstart.jarUrl={{localInstanceQuickstartJarUri}}
-localInstance.quickstart.licenseUrl={{localInstanceQuickstartLicenseUri}}
+localInstance.source={{ localInstanceSource }}
+localInstance.quickstart.jarUrl={{ localInstanceQuickstartJarUri }}
+localInstance.quickstart.licenseUrl={{ localInstanceQuickstartLicenseUri }}
+localInstance.backup.uploadUrl={{ localInstanceBackupUploadUri}}
+localInstance.backup.downloadUrl={{ localInstanceBackupDownloadUri }}
 {% endif %}
 
 # Performance tuning
