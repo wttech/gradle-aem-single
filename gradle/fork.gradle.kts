@@ -1,10 +1,9 @@
+import com.cognifide.gradle.aem.common.instance.local.Source
 import com.neva.gradle.fork.ForkExtension
 
 configure<ForkExtension> {
     properties {
         define(mapOf(
-                "adUsername" to { defaultValue = System.getProperty("user.name") },
-                "adPassword" to { password() },
                 "projectName" to {
                     description = "Artifact 'name' coordinate (lowercase)"
                     validator { lowercased(); alphanumeric() }
@@ -12,21 +11,42 @@ configure<ForkExtension> {
                 "projectLabel" to { description = "Nice project name (human-readable)" },
                 "projectGroup" to {
                     description = "Java package in source code and artifact 'group' coordinate"
-                    validator { javaPackage(); notContains("projectName") }
+                    validator { javaPackage(); notEndsWith("projectName") }
                 },
-                "aemInstanceType" to {
-                    select("local", "remote")
-                    description = "local - instance will be created on local file system.\nremote - connecting to remote instance only."
-                },
-                "aemInstanceRunModes" to { text("nosamplecontent") },
-                "aemInstanceJvmOpts" to { text("-server -Xmx1024m -XX:MaxPermSize=256M -Djava.awt.headless=true") },
-                "aemInstanceAuthorHttpUrl" to {
+                "instanceAuthorHttpUrl" to {
                     url("http://localhost:4502")
+                    optional()
                     description = "URL for accessing AEM author instance"
                 },
-                "aemInstancePublishHttpUrl" to {
+                "instancePublishHttpUrl" to {
                     url("http://localhost:4503")
+                    optional()
                     description = "URL for accessing AEM publish instance"
+                },
+                "instanceType" to {
+                    select("local", "remote")
+                    description = "local - instance will be created on local file system\nremote - connecting to remote instance only"
+                    controller { toggle(value == "local", "aemInstanceRunModes", "aemInstanceJvmOpts", "aemLocalInstance*") }
+                },
+                "instanceRunModes" to { text("local,nosamplecontent") },
+                "instanceJvmOpts" to { text("-server -Xmx2048m -XX:MaxPermSize=512M -Djava.awt.headless=true") },
+                "localInstanceSource" to {
+                    description = "Local instance source\nControls how instances will be created (from scratch or backup)"
+                    select(Source.values().map { it.name.toLowerCase() }, Source.AUTO.name.toLowerCase())
+                },
+                "localInstanceQuickstartJarUri" to {
+                    description = "Quickstart JAR (cq-quickstart-x.x.x.jar)"
+                },
+                "localInstanceQuickstartLicenseUri" to {
+                    description = "Quickstart license file (license.properties)"
+                },
+                "localInstanceBackupDownloadUri" to {
+                    description = "URL to backup file (SMB/SFTP/HTTP)"
+                    optional()
+                },
+                "localInstanceBackupUploadUri" to {
+                    description = "URL to backup directory (SMB/SFTP)"
+                    optional()
                 }
         ))
     }
