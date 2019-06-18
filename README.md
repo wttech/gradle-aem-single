@@ -60,7 +60,7 @@ Documentation for:
     
     and specify properties:
 
-    ![Fork Props Dialog](docs/fork-props-dialog.png)
+    ![Fork Props Dialog](docs/fork-props-dialog.png?123)
 
 3. Setup local AEM instances and dependencies then build application using command:
 
