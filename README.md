@@ -48,7 +48,7 @@ Documentation for:
 
     and specify properties:
 
-    ![Fork Props Dialog](docs/fork-default-dialog.png)
+    ![Fork Props Dialog](docs/fork-default-dialog.png?123)
     
     and wait until project is forked then enter configured target directory.
 
@@ -65,7 +65,7 @@ Documentation for:
 3. Setup local AEM instances and dependencies then build application using command:
 
     ```bash
-    ./gradlew -i aemSetup
+    ./gradlew setup
     ```
     
     and wait till complete AEM environment will be ready to use.
@@ -73,7 +73,7 @@ Documentation for:
 4. Develop continuously application using command:
 
     ```bash
-    ./gradlew -i
+    ./gradlew
     ```
 
 ## Environment
@@ -81,8 +81,8 @@ Documentation for:
 Tested on:
 
 * Java 1.8
-* Gradle 5.0
-* Adobe AEM 6.4
+* Gradle 5.4.1
+* Adobe AEM 6.5
 
 ## Building
 
