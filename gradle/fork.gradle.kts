@@ -11,16 +11,16 @@ configure<ForkExtension> {
                     description = "Artifact 'name' coordinate (lowercase)"
                     validator { lowercased(); alphanumeric() }
                     controller { other("targetPath").value = File(File(other("sourcePath").value).parentFile, value).toString() }
-                    defaultValue = project.rootProject.name
+                    defaultValue = "example"
                 },
                 "projectLabel" to {
                     description = "Nice project name (human-readable)"
-                    defaultValue = project.rootProject.name.capitalize()
+                    defaultValue = "Example"
                 },
                 "projectGroup" to {
                     description = "Java package in source code and artifact 'group' coordinate"
                     validator { javaPackage(); notEndsWith("projectName") }
-                    defaultValue = project.group.toString()
+                    defaultValue = "com.company.aem"
                 },
                 "instanceAuthorHttpUrl" to {
                     url("http://localhost:4502")
