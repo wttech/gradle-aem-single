@@ -6,6 +6,9 @@
 classes/
 fork.properties
 
+### Local AEM instance
+.instance/
+
 ### Java template
 *.class
 

@@ -43,7 +43,7 @@ Documentation for:
 1. Fork project using command:
 
     ```bash
-    git clone git@github.com:Cognifide/gradle-aem-single.git && cd gradle-aem-single && ./gradlew fork
+    git clone https://github.com/Cognifide/gradle-aem-single.git && cd gradle-aem-single && ./gradlew fork
     ```
 
     and specify properties:
