@@ -13,20 +13,11 @@
 
 ## Description
 
-This project could be used to start developing **application** based on AEM.
+This project could be used to start developing **application/library** based on AEM.
 
-To start developing **project** based on AEM it is recommended to use [Gradle AEM Multi](https://github.com/Cognifide/gradle-aem-multi) instead.
+To start developing **long-term project** based on AEM it is recommended to use [Gradle AEM Multi](https://github.com/Cognifide/gradle-aem-multi) instead.
 
 Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
-
-## Important notice 
-
-Gradle AEM Plugin 6.x serie and upper will **no longer support Groovy DSL** and **stands on Kotlin DSL** coming with Gradle 5.0.
-
-Documentation for:
-
-* [migrating Groovy DSL to Kotlin DSL](https://guides.gradle.org/migrating-build-logic-from-groovy-to-kotlin) (official Gradle docs).
-* [previous 5.x serie](https://github.com/Cognifide/gradle-aem-single/tree/groovy) (navigates to branch `groovy`),
 
 ## Table of Contents
 
@@ -43,7 +34,7 @@ Documentation for:
 1. Fork project using command:
 
     ```bash
-    git clone https://github.com/Cognifide/gradle-aem-single.git && cd gradle-aem-single && ./gradlew fork
+    git clone https://github.com/Cognifide/gradle-aem-single.git && cd gradle-aem-single && sh gradlew fork
     ```
 
     and specify properties:
@@ -55,7 +46,7 @@ Documentation for:
 2. Setup user specific project configuration using command:
 
     ```bash
-    ./gradlew props
+    sh gradlew props
     ```
     
     and specify properties:
@@ -65,7 +56,7 @@ Documentation for:
 3. Setup local AEM instances and dependencies then build application using command:
 
     ```bash
-    ./gradlew setup
+    sh gradlew setup
     ```
     
     and wait till complete AEM environment will be ready to use.
@@ -73,7 +64,7 @@ Documentation for:
 4. Develop continuously application using command:
 
     ```bash
-    ./gradlew
+    sh gradlew
     ```
 
 ## Environment
@@ -86,15 +77,17 @@ Tested on:
 
 ## Building
 
-1. Install Gradle
-    * Use bundled wrapper (always use command `gradlew` instead of `gradle`). It will be downloaded automatically (recommended).
-    * Use standalone from [here](https://docs.gradle.org/current/userguide/installation.html).
-2. Run `gradlew idea` or `gradlew eclipse` to generate configuration for your favourite IDE.
-3. Build application and deploy using command: `gradlew` <=> `:aemSatisfy :aemDeploy :aemAwait`
+1. Use command `gradlew` so that Gradle in version according to project will be downloaded automatically.
+2. Deploy application: `sh gradlew` <=> `sh gradlew :packageDeploy`
+  
+## Tooling
+
+1. Monitoring errors in logs: `sh gradlew :instanceTail`,
+2. Synchronizing JCR content from AEM to local file system: `sh gradlew :sync`,
+3. Copying JCR content between AEM instances: `sh gradlew :rcp -Prcp.source=http://user:pass@x.x.x.x:4502 -Prcp.target=local-author -Prcp.paths=[/content/example,/content/dam/example]`
 
 ## Tips & tricks
 
-* To run some task only for subproject, use project path as a prefix, for instance: `gradlew :aem:app.design:aemSync`.
 * According to [recommendations](https://docs.gradle.org/current/userguide/gradle_daemon.html), Gradle daemon should be: 
     * enabled on development environments,
     * disabled on continuous integration environments.

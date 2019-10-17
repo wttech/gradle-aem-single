@@ -3,12 +3,13 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     id("com.cognifide.aem.bundle")
+    id("com.cognifide.aem.tooling")
     id("com.cognifide.aem.instance")
     id("com.neva.fork")
 }
 
 description = "Example"
-defaultTasks(":instanceSatisfy", ":packageDeploy")
+defaultTasks(":instanceSatisfy", ":instanceProvision", ":packageDeploy")
 
 group = "com.company.aem"
 version = "1.0.0-SNAPSHOT"
@@ -16,7 +17,6 @@ version = "1.0.0-SNAPSHOT"
 repositories {
     jcenter()
     maven { url = uri("https://repo.adobe.com/nexus/content/groups/public") }
-    maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }
 }
 
 dependencies {
@@ -53,6 +53,15 @@ tasks {
             "testImplementation"("io.wcm:io.wcm.testing.aem-mock.junit5:2.3.2")
         }
     }
+
+    register("doSomething") {
+        doLast {
+            aem.sync {
+                println(osgiFramework.configurations.count())
+            }
+        }
+    }
 }
+
 
 apply(from = "gradle/fork.gradle.kts")

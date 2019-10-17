@@ -1,13 +1,12 @@
 ### Project specific
-.aem/
-.idea/
+.instance/
+.environment/
+.idea/*
+!/.idea/runConfigurations
 *.iml
 *.ipr
 classes/
 fork.properties
-
-### Local AEM instance
-.instance/
 
 ### Java template
 *.class
@@ -153,7 +152,7 @@ gradle-app.setting
 *.iml
 
 ## Directory-based project format:
-.idea/
+#.idea/
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:
