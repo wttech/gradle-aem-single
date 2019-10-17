@@ -3,13 +3,9 @@
 [![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status.svg?random=123)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status)
 [![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-single.svg?label=License)](http://www.apache.org/licenses/)
 
-# AEM Single-Project Example
+[![Gradle AEM Plugin logo](docs/logo.png)](https://github.com/Cognifide/gradle-aem-plugin)
 
-<br>
-<p align="center">
-  <img src="docs/logo.png" alt="Gradle AEM Plugin Logo"/>
-</p>
-<br>
+# AEM Single-Project Example
 
 ## Description
 
