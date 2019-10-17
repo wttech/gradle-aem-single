@@ -53,15 +53,6 @@ tasks {
             "testImplementation"("io.wcm:io.wcm.testing.aem-mock.junit5:2.3.2")
         }
     }
-
-    register("doSomething") {
-        doLast {
-            aem.sync {
-                println(osgiFramework.configurations.count())
-            }
-        }
-    }
 }
-
 
 apply(from = "gradle/fork.gradle.kts")
