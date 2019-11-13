@@ -2,10 +2,10 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
+    id("com.neva.fork")
     id("com.cognifide.aem.bundle")
     id("com.cognifide.aem.tooling")
     id("com.cognifide.aem.instance")
-    id("com.neva.fork")
 }
 
 description = "Example"
