@@ -2,10 +2,6 @@ plugins {
     `kotlin-dsl`
 }
 
-kotlinDslPluginOptions {
-    experimentalWarning.set(false)
-}
-
 repositories {
     mavenLocal()
     jcenter()
@@ -15,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.cognifide.gradle:aem-plugin:8.1.2")
+    implementation("com.cognifide.gradle:aem-plugin:9.0.0")
     implementation("com.neva.gradle:fork-plugin:4.0.0")
 }
 
