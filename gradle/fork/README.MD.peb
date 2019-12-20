@@ -1,0 +1,11 @@
+# {{ projectLabel }}
+
+## Description
+
+TBD
+
+## Building
+
+```bash
+sh gradlew
+```
