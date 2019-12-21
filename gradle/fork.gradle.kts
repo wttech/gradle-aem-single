@@ -75,7 +75,7 @@ configure<ForkExtension> {
         removeFiles(listOf(
                 "LICENSE",
                 "gh-md-toc",
-                ".travis.yml",
+                "azure-pipelines.yml",
                 "gradle/fork/*",
                 "gradle/fork.gradle.kts"
         ))
