@@ -4,12 +4,8 @@ import com.neva.gradle.fork.ForkExtension
 configure<ForkExtension> {
     properties {
         define(mapOf(
-                "sourcePath" to {
-                    enabled = false
-                },
-                "targetPath" to {
-                    enabled = false
-                },
+                "sourcePath" to { enabled = false },
+                "targetPath" to { enabled = false },
                 "projectName" to {
                     description = "Artifact 'name' coordinate (lowercase)"
                     validator { lowercased(); alphanumeric() }
