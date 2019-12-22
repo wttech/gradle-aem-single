@@ -8,6 +8,9 @@ plugins {
     id("com.cognifide.aem.package.sync")
 }
 
+apply(from = "gradle/fork/fork.gradle.kts")
+apply(from = "gradle/fork/props.gradle.kts")
+
 description = "Example"
 defaultTasks(":instanceSatisfy", ":instanceProvision", ":packageDeploy")
 
@@ -54,5 +57,3 @@ tasks {
         }
     }
 }
-
-apply(from = "gradle/fork.gradle.kts")
