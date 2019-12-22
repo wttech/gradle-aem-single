@@ -4,9 +4,8 @@ import com.neva.gradle.fork.ForkExtension
 configure<ForkExtension> {
     properties {
         define(mapOf(
-                "targetPath" to {
-                    description = "Forked project destination path"
-                },
+                "sourcePath" to { enabled = false },
+                "targetPath" to { enabled = false },
                 "projectName" to {
                     description = "Artifact 'name' coordinate (lowercase)"
                     validator { lowercased(); alphanumeric() }
@@ -71,6 +70,21 @@ configure<ForkExtension> {
                 "com.company.aem" to "{{projectGroup}}",
                 "Example" to "{{projectLabel}}",
                 "example" to "{{projectName}}"
+        ))
+        copyTemplateFile("README.MD")
+        removeFiles(listOf(
+                "LICENSE",
+                "gh-md-toc",
+                "azure-pipelines.yml",
+                "docs/*",
+                "gradle/fork/*",
+                "gradle/fork.gradle.kts"
+        ))
+        removeTexts(listOf(
+                """    maven { url = uri("https://dl.bintray.com/neva-dev/maven-public") }""" + "\n",
+                """    implementation("com.neva.gradle:fork-plugin:4.1.3")""" + "\n",
+                """    id("com.neva.fork")""" + "\n",
+                """apply(from = "gradle/fork.gradle.kts")""" + "\n"
         ))
     }
 }
