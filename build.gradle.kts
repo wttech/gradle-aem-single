@@ -3,9 +3,9 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     id("com.neva.fork")
-    id("com.cognifide.aem.bundle")
-    id("com.cognifide.aem.tooling")
     id("com.cognifide.aem.instance")
+    id("com.cognifide.aem.bundle")
+    id("com.cognifide.aem.package.sync")
 }
 
 description = "Example"
