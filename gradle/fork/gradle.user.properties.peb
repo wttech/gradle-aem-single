@@ -4,15 +4,19 @@ notifier.enabled=true
 {% if instanceAuthorHttpUrl is not empty %}
 instance.local-author.httpUrl={{instanceAuthorHttpUrl}}
 instance.local-author.type={{instanceType}}
+{% if instanceType == 'local' %}
 instance.local-author.runModes={{instanceRunModes}}
 instance.local-author.jvmOpts={{instanceJvmOpts}}
+{% endif %}
 {% endif %}
 
 {% if instancePublishHttpUrl is not empty %}
 instance.local-publish.httpUrl={{instancePublishHttpUrl}}
 instance.local-publish.type={{instanceType}}
+{% if instanceType == 'local' %}
 instance.local-publish.runModes={{instanceRunModes}}
 instance.local-publish.jvmOpts={{instanceJvmOpts}}
+{% endif %}
 {% endif %}
 
 {% if instanceType == 'local' %}
