@@ -1,5 +1,14 @@
 # AEM configuration
 notifier.enabled=true
+package.deploy.workflowToggle=[dam_asset=false]
+
+#package.snapshots=[**/*-SNAPSHOT*.zip]
+#instance.author=true
+#instance.publish=true
+
+fileTransfer.user={{companyUser}}
+fileTransfer.password={{companyPassword}}
+fileTransfer.domain={{companyDomain}}
 
 {% if instanceAuthorHttpUrl is not empty %}
 instance.local-author.httpUrl={{instanceAuthorHttpUrl}}
