@@ -6,4 +6,4 @@ apply(from = "gradle/fork/fork.gradle.kts")
 apply(from = "gradle/fork/props.gradle.kts")
 
 description = "Example - Root"
-defaultTasks(":instanceSatisfy", ":instanceProvision", ":aem:packageDeploy")
+defaultTasks(":aem:instanceSetup", ":aem:packageDeploy")
