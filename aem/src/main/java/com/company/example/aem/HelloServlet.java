@@ -1,4 +1,4 @@
-package com.company.aem.example;
+package com.company.example.aem;
 
 import com.day.cq.wcm.api.NameConstants;
 import com.google.common.collect.ImmutableMap;
@@ -38,5 +38,4 @@ public class HelloServlet extends SlingAllMethodsServlet {
     response.setContentType(MediaType.JSON_UTF_8.toString());
     response.getWriter().write(GSON.toJson(result));
   }
-
 }
