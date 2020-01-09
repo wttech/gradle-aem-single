@@ -3,8 +3,6 @@ import com.neva.gradle.fork.ForkExtension
 configure<ForkExtension> {
     properties {
         define(mapOf(
-                "sourcePath" to { enabled = false },
-                "targetPath" to { enabled = false },
                 "projectName" to {
                     description = "Artifact 'name' coordinate (lowercase)"
                     validator { lowercased(); alphanumeric() }
@@ -19,7 +17,9 @@ configure<ForkExtension> {
                     description = "Java package in source code and artifact 'group' coordinate"
                     validator { javaPackage(); notEndsWith("projectName") }
                     defaultValue = "com.company.aem"
-                }
+                },
+                "sourcePath" to { enabled = false },
+                "targetPath" to { enabled = false }
         ))
     }
     config {
