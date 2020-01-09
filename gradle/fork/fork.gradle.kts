@@ -47,5 +47,6 @@ configure<ForkExtension> {
         removeTexts(listOf(
                 """apply(from = "gradle/fork/fork.gradle.kts")""" + "\n"
         ))
+        makeFilesExecutable()
     }
 }

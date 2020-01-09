@@ -6,4 +6,4 @@ plugins {
 
 apply(from = rootProject.file("gradle/common.gradle.kts"))
 
-description = "Example - AEM Package"
+description = "Example - Application"
