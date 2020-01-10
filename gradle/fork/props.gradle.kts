@@ -14,20 +14,20 @@ configure<ForkExtension> {
                     label = "Author HTTP URL"
                     url("http://localhost:4502")
                     optional()
-                    description = "URL for accessing AEM author instance"
+                    description = "URL for accessing AEM author instance (leave empty to do not use it)"
                 },
                 "instancePublishHttpUrl" to {
                     label = "Publish HTTP URL"
                     url("http://localhost:4503")
                     optional()
-                    description = "URL for accessing AEM publish instance"
+                    description = "URL for accessing AEM publish instance (leave empty to do not use it)"
                 }
         ))
 
         define("Local instance", mapOf(
                 "localInstanceSource" to {
                     label = "Source"
-                    description = "Controls how instances will be created (from scratch, backup or automatically determined)"
+                    description = "Controls how instances will be created (from scratch, backup or any available source)"
                     select(Source.values().map { it.name.toLowerCase() }, Source.AUTO.name.toLowerCase())
                 },
                 "localInstanceQuickstartJarUri" to {
