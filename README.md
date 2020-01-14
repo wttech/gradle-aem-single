@@ -47,7 +47,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
     
     and specify properties:
 
-    ![Fork Props Dialog](docs/fork-props-dialog2.png)
+    ![Fork Props Dialog](docs/fork-props-dialog.png)
 
 3. Setup local AEM instances and dependencies then build application using command:
 
