@@ -29,7 +29,6 @@ configure<ForkExtension> {
                 "/example" to "/{{projectName}}"
         ))
         replaceContents(mapOf(
-                "com.company.example.aem" to "{{projectGroup}}.{{projectName}}.aem",
                 "com.company.example" to "{{projectGroup}}.{{projectName}}",
                 "com.company" to "{{projectGroup}}",
                 "Example" to "{{projectLabel}}",
