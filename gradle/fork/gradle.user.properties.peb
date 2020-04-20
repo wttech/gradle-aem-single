@@ -1,31 +1,40 @@
-notifier.enabled=true
+# === Project specific configuration ===
+webpack.mode={{webpackMode}}
+test.browser={{testBrowser}}
 
-package.manager.workflowToggle=[dam_asset=false]
-#package.manager.snapshots=[**/*-SNAPSHOT*.zip]
+# === GAP configuration ===
 
-#instance.author=true
-#instance.publish=true
+notifier.enabled={{notifierEnabled}}
 
 fileTransfer.user={{companyUser}}
 fileTransfer.password={{companyPassword}}
 fileTransfer.domain={{companyDomain}}
 
+package.validator.enabled={{packageValidatorEnabled}}
+package.bundleTest={{packageBundleTest}}
+package.nestedValidation={{packageNestedValidation}}
+package.manager.workflowToggle=[dam_asset={{packageDamAssetToggle}}]
+
+instance.author={{instanceAuthorOnly}}
+instance.publish={{instancePublishOnly}}
+instance.satisfy.enabled={{instanceSatisfierEnabled}}
+instance.provision.enabled={{instanceProvisionerEnabled}}
+instance.awaitUp.help.enabled={{ instanceAwaitUpHelpEnabled }}
+
 {% if instanceAuthorHttpUrl is not empty %}
 instance.local-author.httpUrl={{instanceAuthorHttpUrl}}
 instance.local-author.type={{instanceType}}
-{% if instanceType == 'local' %}
-instance.local-author.runModes={{instanceRunModes}}
-instance.local-author.jvmOpts={{instanceJvmOpts}}
-{% endif %}
+instance.local-author.runModes={{localInstanceRunModes}}
+instance.local-author.jvmOpts={{localInstanceJvmOpts}}
+instance.local-author.openPath={{localInstanceOpenPath}}
 {% endif %}
 
 {% if instancePublishHttpUrl is not empty %}
 instance.local-publish.httpUrl={{instancePublishHttpUrl}}
 instance.local-publish.type={{instanceType}}
-{% if instanceType == 'local' %}
-instance.local-publish.runModes={{instanceRunModes}}
-instance.local-publish.jvmOpts={{instanceJvmOpts}}
-{% endif %}
+instance.local-publish.runModes={{localInstanceRunModes}}
+instance.local-publish.jvmOpt={{localInstanceJvmOpts}}
+instance.local-publish.openPath={{localInstanceOpenPath}}
 {% endif %}
 
 {% if instanceType == 'local' %}
@@ -34,4 +43,5 @@ localInstance.quickstart.jarUrl={{ localInstanceQuickstartJarUri }}
 localInstance.quickstart.licenseUrl={{ localInstanceQuickstartLicenseUri }}
 localInstance.backup.uploadUrl={{ localInstanceBackupUploadUri}}
 localInstance.backup.downloadUrl={{ localInstanceBackupDownloadUri }}
+localInstance.openMode={{ localInstanceOpenMode }}
 {% endif %}
