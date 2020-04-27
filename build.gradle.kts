@@ -4,6 +4,8 @@ plugins {
     id("com.cognifide.aem.bundle")
     id("com.cognifide.aem.package")
     id("com.cognifide.aem.package.sync")
+    id("net.researchgate.release")
+    id("maven-publish")
 }
 
 apply(from = "gradle/fork/fork.gradle.kts")
@@ -57,3 +59,15 @@ tasks {
         testLogging.showStandardStreams = true
     }
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenAem") {
+            artifact(common.publicationArtifact(tasks.packageCompose))
+        }
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+        }
+    }
+}
+

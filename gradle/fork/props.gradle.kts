@@ -152,6 +152,25 @@ configure<ForkExtension> {
                 }
         ))
 
+        define("Release", mapOf(
+                "releaseRepository" to {
+                    label = "Repository URL"
+                    description = "Nexus, Artifactory etc."
+                    defaultValue = "https://nexus.company.com/content/repositories/company-internal"
+                    optional()
+                },
+                "releaseUser" to {
+                    label = "User"
+                    description = "Authorized to release artifacts to above repository"
+                    optional()
+                },
+                "releasePassword" to {
+                    label = "Password"
+                    description = "For above user"
+                    optional()
+                }
+        ))
+
         define("Other", mapOf(
                 "notifierEnabled" to {
                     label = "Notifications"
