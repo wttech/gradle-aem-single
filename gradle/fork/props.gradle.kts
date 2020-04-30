@@ -39,7 +39,7 @@ configure<ForkExtension> {
                 "instanceAuthorOnly" to {
                     label = "Author Only"
                     description = "Limits instances to work with to author instance only."
-                    checkbox(false)
+                    checkbox(true)
                     controller { other("instancePublishOnly").enabled = !value.toBoolean() }
                 },
                 "instancePublishOnly" to {
