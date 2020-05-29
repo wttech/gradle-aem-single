@@ -50,6 +50,12 @@ aem {
             base("com.adobe.acs:acs-aem-commons-oakpal-checks:4.3.4")
         }
     }
+    instance {
+        provisioner {
+            enableCrxDe()
+            deployPackage("https://github.com/Cognifide/aem-stubs/releases/download/1.0.4/stubs-all-1.0.4.zip")
+        }
+    }
 }
 
 tasks {
