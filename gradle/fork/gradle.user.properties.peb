@@ -24,7 +24,7 @@ package.manager.workflowToggle=[dam_asset=false]
 
 instance.author={{instanceAuthorOnly}}
 instance.publish={{instancePublishOnly}}
-instance.provision.enabled={{instanceProvisionerEnabled}}
+instance.provision.enabled={{instanceProvisionEnabled}}
 instance.provision.deployPackage.strict={{instanceProvisionDeployPackageStrict}}
 instance.awaitUp.help.enabled={{ instanceAwaitUpHelpEnabled }}
 

@@ -48,8 +48,8 @@ configure<ForkExtension> {
                     checkbox(false)
                     controller { other("instanceAuthorOnly").enabled = !value.toBoolean() }
                 },
-                "instanceProvisionerEnabled" to {
-                    label = "Provisioner Enabled"
+                "instanceProvisionEnabled" to {
+                    label = "Provision Enabled"
                     description = "Turns on/off automated instance configuration."
                     checkbox(true)
                 },
