@@ -1,22 +1,9 @@
-import com.cognifide.gradle.aem.common.instance.local.Source
-import com.cognifide.gradle.aem.common.instance.local.OpenMode
+import com.cognifide.gradle.sling.common.instance.local.Source
+import com.cognifide.gradle.sling.common.instance.local.OpenMode
 import com.neva.gradle.fork.ForkExtension
 
 configure<ForkExtension> {
     properties {
-        define("Build", mapOf(
-                "webpackMode" to {
-                    label = "Webpack Mode"
-                    description = "Controls optimization of front-end resources (CSS/JS/assets) "
-                    select("dev", "prod")
-                },
-                "testBrowser" to {
-                    label = "Test Browser"
-                    description = "Browser used when running functional tests powered by Cypress"
-                    select("auto", "chrome", "chrome:canary", "chromium", "electron", "edge", "edge:canary", "firefox", "firefox:nightly")
-                }
-        ))
-
         define("Instance", mapOf(
                 "instanceType" to {
                     label = "Type"
@@ -24,29 +11,11 @@ configure<ForkExtension> {
                     description = "Local - instance will be created on local file system\nRemote - connecting to remote instance only"
                     controller { toggle(value == "local", "instanceRunModes", "instanceJvmOpts", "localInstance*") }
                 },
-                "instanceAuthorHttpUrl" to {
-                    label = "Author HTTP URL"
-                    url("http://localhost:4502")
+                "instanceMasterHttpUrl" to {
+                    label = "HTTP URL"
+                    url("http://localhost:8080")
                     optional()
-                    description = "For accessing AEM author instance (leave empty to skip creating it)"
-                },
-                "instancePublishHttpUrl" to {
-                    label = "Publish HTTP URL"
-                    url("http://localhost:4503")
-                    optional()
-                    description = "For accessing AEM publish instance (leave empty to skip creating it)"
-                },
-                "instanceAuthorOnly" to {
-                    label = "Author Only"
-                    description = "Limits instances to work with to author instance only."
-                    checkbox(true)
-                    controller { other("instancePublishOnly").enabled = !value.toBoolean() }
-                },
-                "instancePublishOnly" to {
-                    label = "Publish Only"
-                    description = "Limits instances to work with to publish instance only."
-                    checkbox(false)
-                    controller { other("instanceAuthorOnly").enabled = !value.toBoolean() }
+                    description = "For accessing instance"
                 },
                 "instanceProvisionEnabled" to {
                     label = "Provision Enabled"
@@ -72,13 +41,10 @@ configure<ForkExtension> {
                     description = "Controls how instances will be created (from scratch, backup or any available source)"
                     select(Source.values().map { it.name.toLowerCase() }, Source.AUTO.name.toLowerCase())
                 },
-                "localInstanceQuickstartJarUri" to {
-                    label = "Quickstart URI"
-                    description = "For file named 'cq-quickstart-x.x.x.jar'"
-                },
-                "localInstanceQuickstartLicenseUri" to {
-                    label = "Quickstart License URI"
-                    description = "For file named 'license.properties'"
+                "localInstanceStarterJarUri" to {
+                    label = "Starter URI"
+                    description = "For file named 'org.apache.sling.starter-xx.jar'"
+                    text("org.apache.sling:org.apache.sling.starter:11")
                 },
                 "localInstanceBackupDownloadUri" to {
                     label = "Backup Download URI"
@@ -115,13 +81,6 @@ configure<ForkExtension> {
                     description = "Avoids uploading and installing package if identical is already deployed on instance."
                     checkbox(true)
                 },
-                "packageDamAssetToggle" to {
-                    label = "Deploy Without DAM Worklows"
-                    description = "Turns on/off temporary disablement of assets processing for package deployment time.\n" +
-                            "Useful to avoid redundant rendition generation when package contains renditions synchronized earlier."
-                    checkbox(true)
-                    dynamic()
-                },
                 "packageValidatorEnabled" to {
                     label = "Validator Enabled"
                     description = "Turns on/off package validation using OakPAL."
@@ -142,7 +101,7 @@ configure<ForkExtension> {
         define("Authorization", mapOf(
                 "companyUser" to {
                     label = "User"
-                    description = "Authorized to access AEM files"
+                    description = "Authorized to access Sling files"
                     defaultValue = System.getProperty("user.name").orEmpty()
                     optional()
                 },
@@ -153,7 +112,7 @@ configure<ForkExtension> {
                 },
                 "companyDomain" to {
                     label = "Domain"
-                    description = "Needed only when accessing AEM files over SMB"
+                    description = "Needed only when accessing Sling files over SMB"
                     defaultValue = System.getenv("USERDOMAIN").orEmpty()
                     optional()
                 }

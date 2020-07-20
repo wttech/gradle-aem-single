@@ -1,7 +1,4 @@
 # === Project specific configuration ===
-webpack.mode={{webpackMode}}
-test.browser={{testBrowser}}
-
 release.repository={{releaseRepository}}
 release.user={{releaseUser}}
 release.password={{releasePassword}}
@@ -18,36 +15,22 @@ package.validator.enabled={{packageValidatorEnabled}}
 package.bundleTest={{packageBundleTest}}
 package.nestedValidation={{packageNestedValidation}}
 package.manager.deployAvoidance={{packageDeployAvoidance}}
-{% if packageDamAssetToggle == 'true' %}
-package.manager.workflowToggle=[dam_asset=false]
-{% endif %}
 
-instance.author={{instanceAuthorOnly}}
-instance.publish={{instancePublishOnly}}
 instance.provision.enabled={{instanceProvisionEnabled}}
 instance.provision.deployPackage.strict={{instanceProvisionDeployPackageStrict}}
 instance.awaitUp.help.enabled={{ instanceAwaitUpHelpEnabled }}
 
-{% if instanceAuthorHttpUrl is not empty %}
-instance.local-author.httpUrl={{instanceAuthorHttpUrl}}
-instance.local-author.type={{instanceType}}
-instance.local-author.runModes={{localInstanceRunModes}}
-instance.local-author.jvmOpts={{localInstanceJvmOpts}}
-instance.local-author.openPath={{localInstanceOpenPath}}
-{% endif %}
-
-{% if instancePublishHttpUrl is not empty %}
-instance.local-publish.httpUrl={{instancePublishHttpUrl}}
-instance.local-publish.type={{instanceType}}
-instance.local-publish.runModes={{localInstanceRunModes}}
-instance.local-publish.jvmOpt={{localInstanceJvmOpts}}
-instance.local-publish.openPath={{localInstanceOpenPath}}
+{% if instanceMasterHttpUrl is not empty %}
+instance.local-master.httpUrl={{instanceMasterHttpUrl}}
+instance.local-master.type={{instanceType}}
+instance.local-master.runModes={{localInstanceRunModes}}
+instance.local-master.jvmOpts={{localInstanceJvmOpts}}
+instance.local-master.openPath={{localInstanceOpenPath}}
 {% endif %}
 
 {% if instanceType == 'local' %}
 localInstance.source={{ localInstanceSource }}
-localInstance.quickstart.jarUrl={{ localInstanceQuickstartJarUri }}
-localInstance.quickstart.licenseUrl={{ localInstanceQuickstartLicenseUri }}
+localInstance.starter.jarUrl={{ localInstanceStarterJarUri }}
 localInstance.backup.uploadUrl={{ localInstanceBackupUploadUri}}
 localInstance.backup.downloadUrl={{ localInstanceBackupDownloadUri }}
 localInstance.openMode={{ localInstanceOpenMode }}

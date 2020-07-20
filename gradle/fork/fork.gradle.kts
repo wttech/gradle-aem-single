@@ -16,7 +16,7 @@ configure<ForkExtension> {
                 "projectGroup" to {
                     description = "Artifact 'group' coordinate and base Java package"
                     validator { javaPackage(); notEndsWith("projectName") }
-                    defaultValue = "com.company.aem"
+                    defaultValue = "com.company.sling"
                 },
                 "sourcePath" to { enabled = false },
                 "targetPath" to { enabled = false }
@@ -25,7 +25,7 @@ configure<ForkExtension> {
     config {
         cloneFiles()
         moveFiles(mapOf(
-                "/com/company/example/aem" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}/aem",
+                "/com/company/example/sling" to "/{{projectGroup|substitute('.', '/')}}/{{projectName}}/sling",
                 "/example" to "/{{projectName}}"
         ))
         replaceContents(mapOf(

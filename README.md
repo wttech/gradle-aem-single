@@ -1,19 +1,17 @@
 ![Cognifide logo](docs/cognifide-logo.png)
 
-[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status.svg?random=123)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status)
-[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-single.svg?label=License)](http://www.apache.org/licenses/)
+[![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-sling-single/status.svg)](https://gradleupdate.appspot.com/Cognifide/gradle-sling-single/status)
+[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-sling-single.svg?label=License)](http://www.apache.org/licenses/)
 
-[![Gradle AEM Plugin logo](docs/logo.png)](https://github.com/Cognifide/gradle-aem-plugin)
+[![Gradle Sling Plugin logo](docs/logo.png)](https://github.com/Cognifide/gradle-sling-plugin)
 
-# AEM Single-Project Example
+# Sling Single-Project Example
 
 ## Description
 
-This project could be used to start developing **application/library** based on AEM.
+This project could be used to start developing **application/library** based on Sling Framework.
 
-To start developing **long-term project** based on AEM it is recommended to use [Gradle AEM Multi](https://github.com/Cognifide/gradle-aem-multi) instead.
-
-Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
+Documentation for Sling plugin is available in project [Gradle Sling Plugin](https://github.com/Cognifide/gradle-sling-plugin).
 
 ## Table of Contents
 
@@ -30,7 +28,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 1. Fork project using command:
 
     ```bash
-    git clone https://github.com/Cognifide/gradle-aem-single.git && cd gradle-aem-single && sh gradlew fork
+    git clone https://github.com/Cognifide/gradle-sling-single.git && cd gradle-sling-single && sh gradlew fork
     ```
 
     and specify properties:
@@ -49,13 +47,13 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 
     ![Fork Props Dialog](docs/fork-props-dialog.png)
 
-3. Setup local AEM instances and dependencies then build application using command:
+3. Setup local Sling instance(s) and dependencies then build application using command:
 
     ```bash
     sh gradlew setup
     ```
     
-    and wait till complete AEM environment will be ready to use.
+    and wait till complete Sling environment will be ready to use.
   
 4. Develop continuously application using command:
 
@@ -69,7 +67,7 @@ Tested on:
 
 * Java 1.8
 * Gradle 6.3
-* Adobe AEM 6.5
+* Sling Starter 11
 
 ## Building
 
@@ -80,7 +78,7 @@ Tested on:
 
 1. Monitoring errors in logs: `sh gradlew :instanceTail`,
 2. Synchronizing JCR content from AEM to local file system: `sh gradlew :sync`,
-3. Copying JCR content between AEM instances: `sh gradlew :rcp -Prcp.source=http://user:pass@x.x.x.x:4502 -Prcp.target=local-author -Prcp.paths=[/content/example,/content/dam/example]`
+3. Copying JCR content between AEM instances: `sh gradlew :rcp -Prcp.source=http://user:pass@x.x.x.x:8080 -Prcp.target=master -Prcp.paths=[/content/example]`
 
 ## Tips & tricks
 
