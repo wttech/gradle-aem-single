@@ -6,19 +6,18 @@ import javax.servlet.Servlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
+import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
 import org.osgi.service.component.annotations.Component;
 
 /**
  * @link http://[host]:[port]/content/example.hello.json
  */
-@Component(
-  service = Servlet.class,
-  property = {
-    "sling.servlet.methods=GET",
-    "sling.servlet.extensions=json",
-    "sling.servlet.selectors=hello",
-    "sling.servlet.resourceTypes=example/hello"
-  }
+@Component(service = Servlet.class)
+@SlingServletResourceTypes(
+  resourceTypes = "example/hello",
+  extensions = "json",
+  selectors = "hello",
+  methods = "GET"
 )
 public class HelloServlet extends SlingAllMethodsServlet {
 
@@ -38,5 +37,4 @@ public class HelloServlet extends SlingAllMethodsServlet {
     response.setContentType("application/json; charset=utf-8");
     response.getWriter().write("{\"result\": \"" + object.toString() + "\"}");
   }
-
 }

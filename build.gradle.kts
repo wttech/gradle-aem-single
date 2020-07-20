@@ -31,6 +31,7 @@ dependencies {
     compileOnly("org.apache.sling:org.apache.sling.jcr.api:2.4.0")
     compileOnly("org.apache.sling:org.apache.sling.models.api:1.3.6")
     compileOnly("org.apache.sling:org.apache.sling.settings:1.3.8")
+    compileOnly("org.apache.sling:org.apache.sling.servlets.annotations:1.2.4")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.2")
