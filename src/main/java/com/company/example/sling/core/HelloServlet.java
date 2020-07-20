@@ -1,4 +1,4 @@
-package com.company.sling.example.core;
+package com.company.example.sling.core;
 
 import java.io.IOException;
 import javax.servlet.Servlet;
@@ -14,6 +14,7 @@ import org.osgi.service.component.annotations.Component;
 @Component(
   service = Servlet.class,
   property = {
+    "sling.servlet.methods=GET",
     "sling.servlet.extensions=json",
     "sling.servlet.selectors=hello",
     "sling.servlet.resourceTypes=example/hello"
