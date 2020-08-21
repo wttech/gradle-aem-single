@@ -4,19 +4,6 @@ import com.neva.gradle.fork.ForkExtension
 
 configure<ForkExtension> {
     properties {
-        define("Build", mapOf(
-                "webpackMode" to {
-                    label = "Webpack Mode"
-                    description = "Controls optimization of front-end resources (CSS/JS/assets) "
-                    select("dev", "prod")
-                },
-                "testBrowser" to {
-                    label = "Test Browser"
-                    description = "Browser used when running functional tests powered by Cypress"
-                    select("auto", "chrome", "chrome:canary", "chromium", "electron", "edge", "edge:canary", "firefox", "firefox:nightly")
-                }
-        ))
-
         define("Instance", mapOf(
                 "instanceType" to {
                     label = "Type"
@@ -28,25 +15,19 @@ configure<ForkExtension> {
                     label = "Author HTTP URL"
                     url("http://localhost:4502")
                     optional()
-                    description = "For accessing AEM author instance (leave empty to skip creating it)"
+                },
+                "instanceAuthorEnabled" to {
+                    label = "Author Enabled"
+                    checkbox(true)
                 },
                 "instancePublishHttpUrl" to {
                     label = "Publish HTTP URL"
                     url("http://localhost:4503")
                     optional()
-                    description = "For accessing AEM publish instance (leave empty to skip creating it)"
                 },
-                "instanceAuthorOnly" to {
-                    label = "Author Only"
-                    description = "Limits instances to work with to author instance only."
+                "instancePublishEnabled" to {
+                    label = "Publish Enabled"
                     checkbox(true)
-                    controller { other("instancePublishOnly").enabled = !value.toBoolean() }
-                },
-                "instancePublishOnly" to {
-                    label = "Publish Only"
-                    description = "Limits instances to work with to publish instance only."
-                    checkbox(false)
-                    controller { other("instanceAuthorOnly").enabled = !value.toBoolean() }
                 },
                 "instanceProvisionEnabled" to {
                     label = "Provision Enabled"
@@ -183,6 +164,16 @@ configure<ForkExtension> {
                     label = "Notifications"
                     description = "Controls displaying of GUI notifications (baloons)"
                     checkbox(true)
+                },
+                "webpackMode" to {
+                    label = "Webpack Mode"
+                    description = "Controls optimization of front-end resources (CSS/JS/assets) "
+                    select("dev", "prod")
+                },
+                "testBrowser" to {
+                    label = "Test Browser"
+                    description = "Browser used when running functional tests powered by Cypress"
+                    select("auto", "chrome", "chrome:canary", "chromium", "electron", "edge", "edge:canary", "firefox", "firefox:nightly")
                 }
         ))
     }
