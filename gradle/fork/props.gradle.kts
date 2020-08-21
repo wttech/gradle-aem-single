@@ -4,7 +4,7 @@ import com.neva.gradle.fork.ForkExtension
 
 configure<ForkExtension> {
     properties {
-        define("Instance", mapOf(
+        define("Instance Options", mapOf(
                 "instanceType" to {
                     label = "Type"
                     select("local", "remote")
@@ -47,6 +47,34 @@ configure<ForkExtension> {
                 }
         ))
 
+        define("Instance Checking", mapOf(
+                "instanceCheckHelpEnabled" to {
+                    label = "Help"
+                    description = "Tries to start bundles automatically when instance is not stable longer time."
+                    checkbox(true)
+                },
+                "instanceCheckBundlesEnabled" to {
+                    label = "Bundles"
+                    description = "Awaits for all bundles in active state."
+                    checkbox(true)
+                },
+                "instanceCheckInstallerEnabled" to {
+                    label = "Installer"
+                    description = "Awaits for Sling OSGi Installer not processing any resources."
+                    checkbox(true)
+                },
+                "instanceCheckEventsEnabled" to {
+                    label = "Events"
+                    description = "Awaits period of time free of OSGi events incoming."
+                    checkbox(true)
+                },
+                "instanceCheckComponentsEnabled" to {
+                    label = "Components"
+                    description = "Awaits for active platform and application specific components."
+                    checkbox(true)
+                }
+        ))
+
         define("Local instance", mapOf(
                 "localInstanceSource" to {
                     label = "Source"
@@ -84,9 +112,13 @@ configure<ForkExtension> {
                     description = "Open web browser when instances are up."
                     select(OpenMode.values().map { it.name.toLowerCase() }, OpenMode.ALWAYS.name.toLowerCase())
                 },
-                "localInstanceOpenPath" to {
-                    label = "Open Path"
-                    text("/")
+                "localInstanceOpenAuthorPath" to {
+                    label = "Open Author Path"
+                    text("/aem/start.html")
+                },
+                "localInstanceOpenPublishPath" to {
+                    label = "Open Publish Path"
+                    text("/crx/packmgr")
                 }
         ))
 
