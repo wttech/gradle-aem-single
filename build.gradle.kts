@@ -69,7 +69,7 @@ tasks {
 publishing {
     publications {
         create<MavenPublication>("mavenAem") {
-            artifact(common.publicationArtifact(tasks.packageCompose))
+            artifact(tasks.packageCompose)
         }
         create<MavenPublication>("mavenJava") {
             from(components["java"])
