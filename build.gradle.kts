@@ -53,7 +53,7 @@ aem {
     instance {
         provisioner {
             enableCrxDe()
-            deployPackage("https://github.com/Cognifide/aem-stubs/releases/download/1.0.4/stubs-all-1.0.4.zip")
+            deployPackage("https://github.com/wttech/aem-stubs/releases/download/1.0.4/stubs-all-1.0.4.zip")
         }
     }
 }
