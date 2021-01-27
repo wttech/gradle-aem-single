@@ -1,9 +1,9 @@
-![Cognifide logo](docs/cognifide-logo.png)
+![WTT logo](docs/wtt-logo.png)
 
 [![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status.svg?random=123)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-single/status)
-[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-single.svg?label=License)](http://www.apache.org/licenses/)
+[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/wttech/gradle-aem-single.svg?label=License)](http://www.apache.org/licenses/)
 
-[![Gradle AEM Plugin logo](docs/logo.png)](https://github.com/Cognifide/gradle-aem-plugin)
+[![Gradle AEM Plugin logo](docs/logo.png)](https://github.com/wttech/gradle-aem-plugin)
 
 # AEM Single-Project Example
 
@@ -11,9 +11,9 @@
 
 This project could be used to start developing **application/library** based on AEM.
 
-To start developing **long-term project** based on AEM it is recommended to use [Gradle AEM Multi](https://github.com/Cognifide/gradle-aem-multi) instead.
+To start developing **long-term project** based on AEM it is recommended to use [Gradle AEM Multi](https://github.com/wttech/gradle-aem-multi) instead.
 
-Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
+Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/wttech/gradle-aem-plugin).
 
 ## Table of Contents
 
@@ -30,7 +30,7 @@ Documentation for AEM plugin is available in project [Gradle AEM Plugin](https:/
 1. Fork project using command:
 
     ```bash
-    git clone https://github.com/Cognifide/gradle-aem-single.git && cd gradle-aem-single && sh gradlew fork
+    git clone https://github.com/wttech/gradle-aem-single.git && cd gradle-aem-single && sh gradlew fork
     ```
 
     and specify properties:
